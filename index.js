@@ -25,7 +25,6 @@ const questions = [
 function init() {
     inquirer.prompt(questions).then((answers) => {
         createdShape(answers);
-        console.log(createdShape(answers))
     }).catch(err => {
         console.log(err)
 });
