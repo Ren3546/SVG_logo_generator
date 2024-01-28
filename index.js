@@ -10,6 +10,11 @@ const questions = [
     },
     {
       type: 'input',
+      name: 'textCol',
+      message: 'What colour would you like your text to be?'  
+    },
+    {
+      type: 'input',
       name: 'colour',
       message: 'What colour would you like your logo to be? (keyword or hexadecimal)',
     },
@@ -23,9 +28,14 @@ const questions = [
 
 function newShape(answers) {
     const logo = createdShape(answers);
-    fs.writeFile('logo.svg', logo), (err) =>
-        err ? console.log(err) : console.log('Successfully created svg')
-}
+    fs.writeFile('logo.svg', logo, (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('Successfully created svg');
+        }
+      });
+    }
 
 
 function init() {
