@@ -1,1 +1,1 @@
-# verbose-computing-machine
+# SVG_logo_generator
