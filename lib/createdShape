@@ -1,0 +1,16 @@
+const {Circle, Square, Triangle} = require ('./shapes');
+
+
+function createdShape(answers){
+    if (answers.shape === 'circle') {
+        let newShape = new Circle(answers.colour, answers.textCol, answers.text)
+        return newShape.render()
+    } else if (answers.shape === 'triangle') {
+        let newShape = new Triangle(answers.colour, answers.textCol, answers.text)
+        return newShape.render()
+    } else (answers.shape === 'square') 
+        let newShape = new Square(answers.colour, answers.textCol, answers.text)
+        return newShape.render()
+}
+
+module.exports = createdShape;

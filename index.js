@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {Circle, Square, Triangle} = require ('./lib/shapes');
-
+const createdShape = require ('./lib/createdShape')
 
 const questions = [
     {
@@ -22,32 +21,19 @@ const questions = [
     },
   ];
 
-function init() {
-    inquirer.prompt(questions).then((answers) => {
-        createdShape(answers);
-    }).catch(err => {
-        console.log(err)
-});
-};
-
-
-function createdShape(answers){
-    if (answers.shape === 'circle') {
-        let newShape = new Circle(answers.colour, answers.textCol, answers.text)
-        return newShape.render()
-    } else if (answers.shape === 'triangle') {
-        let newShape = new Triangle(answers.colour, answers.textCol, answers.text)
-        return newShape.render()
-    } else (answers.shape === 'square') 
-        let newShape = new Square(answers.colour, answers.textCol, answers.text)
-        return newShape.render()
-}
-
-function newShape() {
+function newShape(answers) {
     const logo = createdShape(answers);
     fs.writeFile('logo.svg', logo), (err) =>
         err ? console.log(err) : console.log('Successfully created svg')
 }
 
+
+function init() {
+    inquirer.prompt(questions).then((answers) => {
+        newShape(answers);
+    }).catch(err => {
+        console.log(err)
+});
+};
 
 init();
