@@ -1,6 +1,6 @@
 const {Circle, Square, Triangle} = require ('./shapes');
 
-
+//takes answers from prompts and makes a new shape model, passing in variables with answers
 function createdShape(answers){
     if (answers.shape === 'circle') {
         let newShape = new Circle(answers.colour, answers.textCol, answers.text)
