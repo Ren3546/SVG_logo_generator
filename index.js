@@ -1,7 +1,9 @@
+//packages for creating files and prompting user questions
 const inquirer = require('inquirer');
 const fs = require('fs');
 const createdShape = require ('./lib/createdShape')
 
+//questions array to ask user
 const questions = [
     {
       type: 'input',
@@ -26,6 +28,7 @@ const questions = [
     },
   ];
 
+//function to create svg file
 function newShape(answers) {
     const logo = createdShape(answers);
     fs.writeFile('logo.svg', logo, (err) => {
@@ -37,7 +40,7 @@ function newShape(answers) {
       });
     }
 
-
+//function to initialize app
 function init() {
     inquirer.prompt(questions).then((answers) => {
         newShape(answers);
